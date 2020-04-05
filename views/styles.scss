@@ -1,7 +1,10 @@
 $red: #903;
 $black: #444;
 $white: #fff;
+$green: #4CAF50;
 $main-font: Helvetica, Arial, sans-serif;
+$default-width: 30%;
+$default-border: 50%;
 
 body {
   font-family: $main-font;
@@ -69,6 +72,16 @@ label {
   border: 1px solid $red;
 }
 
+.formatted-object {
+  padding: 1px 0px;
+  display: block;
+  text-align: center; 
+  margin-left: auto;
+  margin-right: auto;
+  width: $default-width;
+  border-radius: $default-border;
+}
+
 #like {
   p {
     font-weight: bold;
@@ -80,4 +93,14 @@ label {
     height: 28px;
     padding-left: 24px;
   }
+}
+
+div.container {
+  position: relative;
+}
+
+span.embedded-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }

@@ -36,7 +36,7 @@ helpers do
     end
 
     def set_title
-        @title ||= "Songs By Sinatra"
+        @title ||= "Bat Surveyor Training Resource"
     end
 
     def send_message
