@@ -48,11 +48,12 @@ class Website < Sinatra::Base
             :via_options => {
               :address => 'smtp.mailgun.org',
               :port => '587',
+              :enable_starttls_auto => true
               :domain => 'heroku.com',
               :user_name => ENV['MAILGUN_SMTP_LOGIN'],
               :password => ENV['MAILGUN_SMTP_PASSWORD'],
               :authentication => :plain,
-              :enable_starttls_auto => true
+              
             }
         }
     end
@@ -81,9 +82,8 @@ class Website < Sinatra::Base
     def send_message
         Pony.options = settings.email_options
         Pony.mail(
-            :from => params[:name] + "<" + params[:email] + ">",
-            :subject => params[:name] + " has contacted you",
-            :body => params[:message],
+            :subject => "<" + params[:email] + ">" + params[:name] + " has contacted you.",
+            :body => params[:message] + "<" + params[:email] + ">" ,
             :via => :smtp
         )
     end 
