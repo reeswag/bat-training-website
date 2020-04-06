@@ -23,7 +23,7 @@ class Website < Sinatra::Base
     configure :development do
         set :start_time => Time.now 
         
-        email_options = {
+        set :email_options => {
             :from => "noreply@bat-training-website.herokuapp.com",
             :to => 'totagi1972@smlmail.com',
             :via => 'smtp',
@@ -41,7 +41,7 @@ class Website < Sinatra::Base
     configure :production do
         set :start_time => Time.now
 
-        email_options = {      
+        set :email_options => {      
             :from => 'noreply@bat-training-website.herokuapp.com',
             :to => 'totagi1972@smlmail.com',
             :via => :smtp,
@@ -80,9 +80,7 @@ class Website < Sinatra::Base
 
     def send_message
         Pony.options = settings.email_options
-        Pony.mail(
-            :body = 'test'
-            )
+        Pony.mail(:body => 'test')
         #Pony.mail(
          #   :from => params[:name] + "<" + params[:email] + ">",
           #  :to => 'totagi1972@smlmail.com',
