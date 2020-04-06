@@ -43,14 +43,14 @@ class Website < Sinatra::Base
 
         set :email_options => {      
             :from => 'noreply@bat-training-website.herokuapp.com',
-            :to => 'totagi1972@smlmail.com',
+            :to => 'reeswag@gmail.com',
             :via => :smtp,
             :via_options => {
-              :address => 'smtp.sendgrid.net',
+              :address => 'smtp.mailgun.org',
               :port => '587',
               :domain => 'heroku.com',
-              :user_name => ENV['SENDGRID_USERNAME'],
-              :password => ENV['SENDGRID_PASSWORD'],
+              :user_name => ENV['MAILGUN_SMTP_LOGIN'],
+              :password => ENV['MAILGUN_SMTP_PASSWORD'],
               :authentication => :plain,
               :enable_starttls_auto => true
             }
