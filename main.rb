@@ -115,7 +115,7 @@ class Website < Sinatra::Base
 
     post '/contact' do
         send_message
-        flash[:notice]="Thank you for your message. We'll be in touch soon."
+        #flash[:notice]="Thank you for your message. We'll be in touch soon."
         redirect to('/')
     end
 end
