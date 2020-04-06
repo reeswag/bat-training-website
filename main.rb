@@ -22,13 +22,14 @@ class Website < Sinatra::Base
 
     configure :development do
         set :start_time => Time.now 
+        
         Pony.options = {
             :via => 'smtp',
             :via_options => {
                 :address => 'smtp.mailgun.org',
                 :port => '587',
                 :enable_starttls_auto => true,
-                :authenitcation => :plain,
+                :authentication => :plain,
                 :user_name => 'fakeemail.mailgun.org',
                 :password => 'fakepassword'
             }
@@ -36,13 +37,22 @@ class Website < Sinatra::Base
     end
 
     configure :production do
-        set :email_address => 'smtp.sendgrid.net',
-            :email_user_name => ENV['SENDGRID_USERNAME'],
-            :email_password => ENV['SENDGRID_PASSWORD'],
-            :email_domain => 'heroku.com',
-            :start_time => Time.now
-    end
+        set :start_time => Time.now
 
+        Pony.options = {
+            :via => 'smtp',
+            :via_options => {
+                :address => 'smtp.sendgrid.net',
+                :port => '587',
+                :domain => 'heroku.com',
+                :enable_starttls_auto => true,
+                :authentication => :plain,
+                :user_name => ENV['SENDGRID_USERNAME'],
+                :password => ENV['SENDGRID_PASSWORD']
+            }
+        }
+    end
+    
     before do
         last_modified settings.start_time
         etag settings.start_time.to_s
