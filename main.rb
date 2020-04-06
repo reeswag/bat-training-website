@@ -32,8 +32,8 @@ class Website < Sinatra::Base
                 :port => '587',
                 :enable_starttls_auto => true,
                 :authentication => :plain,
-                :user_name => 'testemail.mailgun.org',
-                :password => 'testpassword'
+                :user_name => ENV['MAILGUN_SMTP_LOGIN'],
+                :password => ENV['MAILGUN_SMTP_PASSWORD']
             }
         }
     end
@@ -117,14 +117,8 @@ class Website < Sinatra::Base
     end
 
     post '/contact' do
-        begin
             send_message
-            puts "message sent"
-            redirect to('/contact')
             flash[:notice]="Thank you for your message. I'll be in touch soon."
-        rescue
-            flash[:notice]="Something went wrong, please try again."
-            redirect to('/contact')
-        end
+            redirect to ('/')
     end
 end
