@@ -23,15 +23,17 @@ class Website < Sinatra::Base
     configure :development do
         set :start_time => Time.now 
         
-        Pony.options = {
+        email_options = {
+            :from => "noreply@bat-training-website.herokuapp.com",
+            :to => 'totagi1972@smlmail.com',
             :via => 'smtp',
             :via_options => {
                 :address => 'smtp.mailgun.org',
                 :port => '587',
                 :enable_starttls_auto => true,
                 :authentication => :plain,
-                :user_name => 'fakeemail.mailgun.org',
-                :password => 'fakepassword'
+                :user_name => 'postmaster@mailgun.org',
+                :password => 'mailgunpassword'
             }
         }
     end
@@ -39,16 +41,18 @@ class Website < Sinatra::Base
     configure :production do
         set :start_time => Time.now
 
-        Pony.options = {
-            :via => 'smtp',
+        email_options = {      
+            :from => 'noreply@bat-training-website.herokuapp.com',
+            :to => 'totagi1972@smlmail.com',
+            :via => :smtp,
             :via_options => {
-                :address => 'smtp.sendgrid.net',
-                :port => '587',
-                :domain => 'heroku.com',
-                :enable_starttls_auto => true,
-                :authentication => :plain,
-                :user_name => ENV['SENDGRID_USERNAME'],
-                :password => ENV['SENDGRID_PASSWORD']
+              :address => 'smtp.sendgrid.net',
+              :port => '587',
+              :domain => 'heroku.com',
+              :user_name => ENV['SENDGRID_USERNAME'],
+              :password => ENV['SENDGRID_PASSWORD'],
+              :authentication => :plain,
+              :enable_starttls_auto => true
             }
         }
     end
@@ -75,13 +79,17 @@ class Website < Sinatra::Base
     end
 
     def send_message
+        Pony.options = settings.email_options
         Pony.mail(
-            :from => params[:name] + "<" + params[:email] + ">",
-            :to => 'totagi1972@smlmail.com',
-            :subject => params[:name] + " has contacted you",
-            :body => params[:message],
-            :via => :smtp
-        )
+            :body = 'test'
+            )
+        #Pony.mail(
+         #   :from => params[:name] + "<" + params[:email] + ">",
+          #  :to => 'totagi1972@smlmail.com',
+           # :subject => params[:name] + " has contacted you",
+            #:body => params[:message],
+            #:via => :smtp
+        #)
     end 
 
     # get('/styles.css'){ scss :styles } # This employs the sass helper to tell Sinatra to process this request using Sass using the styles file located within the views directory. - moved to asset-handler.rb
@@ -115,6 +123,7 @@ class Website < Sinatra::Base
 
     post '/contact' do
         send_message
+        puts message sent
         #flash[:notice]="Thank you for your message. We'll be in touch soon."
         redirect to('/')
     end

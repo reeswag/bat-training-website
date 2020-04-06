@@ -12,4 +12,5 @@ source 'https://rubygems.org' do
     gem "pg", :group => :production
     gem "dm-postgres-adapter", :group => :production
     gem "dm-sqlite-adapter", :group => :development
+    gem "sendgrid-ruby"
 end
