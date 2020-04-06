@@ -81,8 +81,8 @@ class Website < Sinatra::Base
     def send_message
         Pony.options = settings.email_options
         Pony.mail(
-            :subject => "<" + params[:email] + ">" + params[:name] + " has contacted you.",
-            :body => params[:message] + "<" + params[:email] + ">" ,
+            :subject => "<" + params[:email] + "> " + params[:name] + " has contacted you.",
+            :body => params[:message],
             :via => :smtp
         )
     end 
