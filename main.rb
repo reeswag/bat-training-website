@@ -48,12 +48,11 @@ class Website < Sinatra::Base
             :via_options => {
               :address => 'smtp.mailgun.org',
               :port => '587',
-              :enable_starttls_auto => true
+              :enable_starttls_auto => true,
               :domain => 'heroku.com',
               :user_name => ENV['MAILGUN_SMTP_LOGIN'],
               :password => ENV['MAILGUN_SMTP_PASSWORD'],
-              :authentication => :plain,
-              
+              :authentication => :plain
             }
         }
     end
