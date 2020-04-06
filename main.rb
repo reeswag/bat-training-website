@@ -21,11 +21,18 @@ class Website < Sinatra::Base
     end
 
     configure :development do
-        set :email_address => 'not_a_real_email@gmail.com',
-            :email_user_name => 'not_a_real_user_name',
-            :email_password => 'not_a_real_password',
-            :email_domain => 'localhost.localdomain',
-            :start_time => Time.now 
+        set :start_time => Time.now 
+        Pony.options = {
+            :via => 'smtp',
+            :via_options => {
+                :address => 'smtp.mailgun.org',
+                :port => '587',
+                :enable_starttls_auto => true,
+                :authenitcation => :plain,
+                :user_name => 'fakeemail.mailgun.org',
+                :password => 'fakepassword'
+            }
+        }
     end
 
     configure :production do
@@ -54,26 +61,16 @@ class Website < Sinatra::Base
     end
 
     def set_title
-        @title ||= "Songs By Sinatra"
+        @title ||= "Bat Training Resource"
     end
 
     def send_message
         Pony.mail(
             :from => params[:name] + "<" + params[:email] + ">",
-            :to => 'not_a_real_email@gmail.com',
+            :to => 'totagi1972@smlmail.com',
             :subject => params[:name] + " has contacted you",
             :body => params[:message],
-            :port => '587',
-            :via => :smtp,
-            :via_options => { 
-            :address              => 'smtp.gmail.com', 
-            :port                 => '587', 
-            :enable_starttls_auto => true, 
-            :user_name            => 'not_a_real_user_name', 
-            :password             => 'not_a_real_password', 
-            :authentication       => :plain, 
-            :domain               => 'localhost.localdomain'
-            }
+            :via => :smtp
         )
     end 
 
