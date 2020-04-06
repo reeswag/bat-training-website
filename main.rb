@@ -117,9 +117,14 @@ class Website < Sinatra::Base
     end
 
     post '/contact' do
-        send_message
-        puts "message sent"
-        flash[:notice]="Thank you for your message. I'll be in touch soon."
-        #redirect to('/about')
+        begin
+            send_message
+            puts "message sent"
+            redirect to('/contact')
+            flash[:notice]="Thank you for your message. I'll be in touch soon."
+        rescue
+            flash[:notice]="Something went wrong, please try again."
+            redirect to('/contact')
+        end
     end
 end
