@@ -1,7 +1,7 @@
 require 'sinatra/base'
 
 require './main' 
-require './song'
+require './btr'
 
-map('/songs') { run SongController }
+map('/btr') { run BatTrainingResources }
 map('/') { run Website }
