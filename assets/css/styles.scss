@@ -167,9 +167,9 @@ span.embedded-text {
 
 .btr-smaller-images {
   padding: 1px 0px;
-  display: block;
   text-align: center; 
-  width: 765px;
+  width: 50%;
+  object-fit: fill;
 }
 
 li {
@@ -178,7 +178,6 @@ li {
 
 figure {
   width: 765px;
-  height: 573.75px;
   font: $default-font;
   font-weight: bold;
   text-align: center; 
@@ -187,13 +186,13 @@ figure {
   margin-bottom: 1em;
   margin-left: 0px;
   margin-right: 0px;
+  padding: 1px 0px;
 }
 
 iframe {
-  display: block;
   text-align: center; 
-  width: 765px;
-  height: 550px;
+  width: 95%;
+  height: 400px;
   margin-left: 0px;
   margin-right: 0px;
 }
