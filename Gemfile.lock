@@ -8,25 +8,10 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     daemons (1.3.1)
-    data_objects (0.10.17)
-      addressable (~> 2.1)
     dm-core (1.2.1)
       addressable (~> 2.3)
-    dm-do-adapter (1.2.0)
-      data_objects (~> 0.10.6)
-      dm-core (~> 1.2.0)
     dm-migrations (1.2.0)
       dm-core (~> 1.2.0)
-    dm-postgres-adapter (1.2.0)
-      dm-do-adapter (~> 1.2.0)
-      do_postgres (~> 0.10.6)
-    dm-sqlite-adapter (1.2.0)
-      dm-do-adapter (~> 1.2.0)
-      do_sqlite3 (~> 0.10.6)
-    do_postgres (0.10.17)
-      data_objects (= 0.10.17)
-    do_sqlite3 (0.10.17)
-      data_objects (= 0.10.17)
     eventmachine (1.2.7)
     execjs (2.7.0)
     ffi (1.12.2)
@@ -39,7 +24,7 @@ GEM
     pg (1.2.3)
     pony (1.13.1)
       mail (>= 2.0)
-    public_suffix (4.0.3)
+    public_suffix (4.0.4)
     rack (2.2.2)
     rack-protection (2.0.8.1)
       rack
@@ -83,8 +68,6 @@ DEPENDENCIES
   coffee-script!
   dm-core!
   dm-migrations!
-  dm-postgres-adapter!
-  dm-sqlite-adapter!
   pg!
   pony!
   sass!
