@@ -5,19 +5,14 @@ require 'sinatra/flash'
 require 'pony'
 require 'v8'
 require 'coffee-script'
-require './song'
-require './sinatra/auth'
 require './asset-handler'
 
 class Website < Sinatra::Base
     use AssetHandler
-    register Sinatra::Auth
     register Sinatra::Flash 
 
     configure do
         enable :sessions
-        set :username, 'frank'
-        set :password, 'sinatra'
     end
 
     configure :development do
@@ -87,16 +82,8 @@ class Website < Sinatra::Base
         )
     end 
 
-    # get('/styles.css'){ scss :styles } # This employs the sass helper to tell Sinatra to process this request using Sass using the styles file located within the views directory. - moved to asset-handler.rb
-    # get('/javascripts/application.js'){ coffee :application } # this employs the coffee helper method to tell Sinatra to process the request using CoffeeScript using the application file in the views directory. - moved to asset-handler.rb
-
     get '/' do
         slim :home
-    end
-
-    get '/about' do
-        @title = "All About This Website"
-        slim :about
     end
 
     get '/contact' do
@@ -108,7 +95,7 @@ class Website < Sinatra::Base
         session[:name] = params[:name]
     end
 
-    get '/get/hello' do
+    get '/hello' do
         "Hello #{session[:name]}"
     end
 

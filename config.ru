@@ -3,5 +3,8 @@ require 'sinatra/base'
 require './main' 
 require './btr'
 
-map('/btr') { run BatTrainingResources }
-map('/') { run Website }
+MAIN_URL='/'
+BTR_URL='/btr'
+
+map(BTR_URL) { run BatTrainingResources }
+map(MAIN_URL) { run Website }

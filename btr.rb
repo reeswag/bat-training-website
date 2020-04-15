@@ -2,15 +2,20 @@ require 'sinatra/base'
 require 'slim'
 require 'sass'
 require 'sinatra/flash'
-require './sinatra/auth'
 
 module TrainingHelpers
+    def references options
+        if options[:url] != nil
+            '<p class="references"' + '>' + options[:text] + ' Available at: ' '<a href="' + options[:url] + '">' + options[:url] + '</a></p>'
+        else
+            '<p class="references"' + '>' + options[:text]
+        end
+    end
 end
 
 class BatTrainingResources < Sinatra::Base
     enable :method_override # allows the _method overrides to work.
     register Sinatra::Flash
-    register Sinatra::Auth
 
     helpers TrainingHelpers
 
@@ -36,8 +41,12 @@ class BatTrainingResources < Sinatra::Base
     end
 
     get '/*' do
-        viewname = (params[:splat].first)  # eg "some/path/here"
-        p viewname
-        slim:"btr/#{viewname}"
+        viewname = (params[:splat].first)  # eg "some/path/here" 
+        @title = viewname.gsub("-"," ").split.map(&:capitalize)*' '#this converts the url into a page title with title case.
+        begin
+            slim:"btr/#{viewname}", :layout => :"btr/layout-btr"
+        rescue 
+           redirect(MAIN_URL)
+        end
     end
 end

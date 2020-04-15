@@ -3,8 +3,9 @@ $black: #444;
 $white: #fff;
 $green: #4CAF50;
 $main-font: Helvetica, Arial, sans-serif;
-$default-width: 30%;
-$default-border: 50%;
+$default-width: 500px;
+$default-border: 60%;
+$default-font: 14px/1.4 $main-font;
 
 body {
   font-family: $main-font;
@@ -13,6 +14,11 @@ body {
 h1 {
   color: $red;
   font: 32px/1 $main-font;
+}
+
+h2 {
+  font: 25px/1 $main-font;
+  font-weight: bold;
 }
 
 header h1 {
@@ -32,6 +38,7 @@ header h1 {
   }
   li {
     float: left;
+    font: inherit
   }
   a {
     text-decoration: none;
@@ -90,7 +97,11 @@ nav a.current {
 }
 
 p {
-  font: 13px/1.4 $main-font;
+  font: $default-font;
+}
+
+p.references {
+  font-style: italic;
 }
 
 label {
@@ -138,4 +149,51 @@ span.embedded-text {
   position: absolute;
   bottom: 0;
   left: 0;
+}
+
+.bats-of-the-uk {
+  padding: 1px 0px;
+  display: block;
+  text-align: center; 
+  width: 765px;
+}
+
+.btr-images {
+  padding: 1px 0px;
+  display: block;
+  text-align: center; 
+  width: 765px;
+}
+
+.btr-smaller-images {
+  padding: 1px 0px;
+  display: block;
+  text-align: center; 
+  width: 765px;
+}
+
+li {
+  font: $default-font;
+}
+
+figure {
+  width: 765px;
+  height: 573.75px;
+  font: $default-font;
+  font-weight: bold;
+  text-align: center; 
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+iframe {
+  display: block;
+  text-align: center; 
+  width: 765px;
+  height: 550px;
+  margin-left: 0px;
+  margin-right: 0px;
 }

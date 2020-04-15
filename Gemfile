@@ -10,7 +10,5 @@ source 'https://rubygems.org' do
     gem "therubyracer"
     gem "coffee-script"
     gem "pg", :group => :production
-    gem "dm-postgres-adapter", :group => :production
-    gem "dm-sqlite-adapter", :group => :development
     gem "sendgrid-ruby"
 end
