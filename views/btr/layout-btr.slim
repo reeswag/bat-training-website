@@ -13,8 +13,7 @@ html lang="en"
         section
             == styled_flash
             == yield
-        /!
-           br
+            br
             - if @references && @references.empty? == false
                 h2 References
                 - p @references
@@ -28,5 +27,3 @@ html lang="en"
                 nav
                     <a href="/" class= "formatted-object">Return Home</a>
             br
-        /
-        

@@ -5,27 +5,30 @@ $green: #4CAF50;
 $main-font: Helvetica, Arial, sans-serif;
 $default-width: 500px;
 $default-border: 60%;
-$default-font: 14px/1.4 $main-font;
+$default-font: 1.6rem $main-font;
 
+:root {
+  font-size: 62.5%;
+}
 body {
   font-family: $main-font;
 }
 
 h1 {
   color: $red;
-  font: 32px/1 $main-font;
+  font: 3.2rem $main-font;
 }
 
 h2 {
-  font: 25px/1 $main-font;
+  font: 2.5rem $main-font;
   font-weight: bold;
 }
 
 header h1 {
-  font-size: 40px;
-  line-height: 80px;
+  font-size: 4rem;
+  line-height: 8rem;
   background: transparent url(/images/logo.png) 0 0 no-repeat;
-  padding-left: 84px;
+  padding-left: 8.4rem;
 }
 
 @mixin tabs ($background: blue, $color: yellow) {
@@ -43,7 +46,7 @@ header h1 {
   a {
     text-decoration: none;
     display: block;
-    padding: 8px;
+    padding: 0.8rem;
     background: $background;
     color: $color;
     &:hover {
@@ -55,7 +58,7 @@ header h1 {
 nav {
   @include tabs ($background: $black, $color: $white);
   font-weight: bold;
-  font-size: 20px;
+  font-size: 1.6rem;
 }
 
 nav div.dropdown {
@@ -73,7 +76,7 @@ nav button.dropbtn {
   background-color: inherit;
   font-family: inherit;
   margin: 0;
-  padding: 8px;
+  padding: 0.8rem;
   font-weight: inherit;
 }
 
@@ -81,8 +84,8 @@ nav div.dropdown-content {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  min-width: 16rem;
+  box-shadow: 0rem 0.8rem 1.6rem 0rem rgba(0,0,0,0.2);
   z-index: 1;
   &:hover {
     display: inline;
@@ -110,13 +113,13 @@ label {
 }
 
 .flash {
-  width: 600px;
-  padding: 5px;
+  width: 60rem;
+  padding: 0.5rem;
   font-weight: bold;
-  margin: 20px;
+  margin: 2rem;
   background: lighten($red, 60%);
   color: $red;
-  border: 1px solid $red;
+  border: 1rem solid $red;
 }
 
 .formatted-object {
@@ -136,8 +139,8 @@ label {
   input {
     background: $white url(/images/like.png) 0 0 no-repeat;
     border: darken($red, 10%) 1px solid;
-    height: 28px;
-    padding-left: 24px;
+    height: 2.8rem;
+    padding-left: 2.4rem;
   }
 }
 
@@ -152,21 +155,23 @@ span.embedded-text {
 }
 
 .bats-of-the-uk {
-  padding: 1px 0px;
+  padding: 0.1rem 0rem;
   display: block;
   text-align: center; 
-  width: 765px;
+  max-width: 76.5rem;
+  width:100%;
 }
 
 .btr-images {
-  padding: 1px 0px;
+  padding: 0.1rem 0rem;
   display: block;
   text-align: center; 
-  width: 765px;
+  max-width: 76.5rem;
+  width:100%;
 }
 
 .btr-smaller-images {
-  padding: 1px 0px;
+  padding: 0.1rem, 0rem;
   text-align: center; 
   width: 50%;
   object-fit: fill;
@@ -177,28 +182,29 @@ li {
 }
 
 figure {
-  width: 765px;
+  max-width: 76.5rem;
+  width: 100%;
   text-align: center; 
   display: block;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  margin-left: 0px;
-  margin-right: 0px;
-  padding: 1px 0px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 0rem;
+  margin-right: 0rem;
+  padding: 0.1rem 0rem;
 }
 
 iframe {
   text-align: center; 
   width: 95%;
-  height: 400px;
-  margin-left: 0px;
-  margin-right: 0px;
+  height: 40rem;
+  margin-left: 0rem;
+  margin-right: 0rem;
 }
 
 figcaption {
   caption-side: bottom;
   background: #fff;
-  padding: 0 5px 5px;
+  padding: 0 0.5rem 0.5rem;
   font: $default-font;
   font-weight: bold;
   text-align: center;

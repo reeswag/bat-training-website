@@ -43,10 +43,10 @@ class BatTrainingResources < Sinatra::Base
     get '/*' do
         viewname = (params[:splat].first)  # eg "some/path/here" 
         @title = viewname.gsub("-"," ").split.map(&:capitalize)*' '#this converts the url into a page title with title case.
-        begin
+        #begin
             slim:"btr/#{viewname}", :layout => :"btr/layout-btr"
-        rescue 
-           redirect(MAIN_URL)
-        end
+        #rescue 
+           #redirect(MAIN_URL)
+        #end
     end
 end
