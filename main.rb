@@ -74,7 +74,7 @@ class Website < Sinatra::Base
     end
 
     def set_title
-        @title ||= "Bat Training Resource"
+        @title ||= "Bat Surveyor Resource"
     end
 
     def send_message
@@ -91,7 +91,7 @@ class Website < Sinatra::Base
     end
 
     get '/contact' do
-        @title = "Contact Us"
+        @title = "Contact"
         slim :contact
     end
 

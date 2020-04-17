@@ -78,53 +78,6 @@ header h1 {
   margin-inline-end: 0rem;
 }
 
-@mixin tabs ($background: blue, $color: yellow) {
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: 25%;
-    background-color: $background;
-    position: relative;
-    height: 100%;
-    overflow: auto;
-  }
-
-  li a {
-    display: block;
-    color: $color;
-    padding: 8px 16px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1rem;
-    background: $background;
-    color: $color;
-    &:hover {
-      background: darken($background, 20%);
-    }
-  }
-
-    @media screen and (max-width: 900px) {
-      ul {
-        width: 100%;
-        height: auto;
-        position: relative;
-      }
-      
-      li a {
-        float: left;
-        padding: 15px;
-      }
-    }
-    
-    @media screen and (max-width: 400px) {
-      li a {
-        text-align: center;
-        float: none;
-      }
-    }
-}
-
 p {
   font-size: $default-font;
   margin-top: 1rem;
@@ -175,20 +128,14 @@ span.embedded-text {
   left: 0;
 }
 
-.bats-of-the-uk {
-  padding: 0.1rem 0rem;
-  display: block;
-  text-align: center; 
-  max-width: 60rem;
-  width:100%;
-}
-
 .btr-images {
   padding: 0.1rem 0rem;
   display: block;
   text-align: center; 
   max-width: 60rem;
   width:100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .btr-smaller-images {
@@ -197,6 +144,8 @@ span.embedded-text {
   width: 50%;
   min-width: 10rem;
   object-fit: fill;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 li {
@@ -220,6 +169,8 @@ figure.left-aligned {
     width: 100%;
     max-width: 35rem;
     object-fit: fill;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 iframe {
