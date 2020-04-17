@@ -27,8 +27,8 @@ class Website < Sinatra::Base
                 :port => '587',
                 :enable_starttls_auto => true,
                 :authentication => :plain,
-                :user_name => "postmaster@sandboxd0ddceff1125493e96cfe2589b372107.mailgun.org",
-                :password => "d99af0dd9950c059a9f8c826ea4d5fc5-aa4b0867-f2d22f99"
+                :user_name => "fakeusername",
+                :password => "fakepassword"
             }
         }
     end
