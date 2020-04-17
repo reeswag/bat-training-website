@@ -27,8 +27,8 @@ class Website < Sinatra::Base
                 :port => '587',
                 :enable_starttls_auto => true,
                 :authentication => :plain,
-                :user_name => ENV['MAILGUN_SMTP_LOGIN'],
-                :password => ENV['MAILGUN_SMTP_PASSWORD']
+                :user_name => "postmaster@sandboxd0ddceff1125493e96cfe2589b372107.mailgun.org",
+                :password => "d99af0dd9950c059a9f8c826ea4d5fc5-aa4b0867-f2d22f99"
             }
         }
     end
@@ -66,7 +66,11 @@ class Website < Sinatra::Base
     end
 
     def current?(path='/')
-        (request.path==path || request.path==path+'/') ? "current" : nil
+        (request.path==path || request.path==path+'/') ? "nav-item active" : "nav-item"
+    end
+
+    def current_dropdown?(path='/')
+        (request.path==path || request.path==path+'/') ? "dropdown-item active" : "dropdown-item"
     end
 
     def set_title
@@ -104,8 +108,7 @@ class Website < Sinatra::Base
     end
 
     post '/contact' do
-            send_message
-            flash[:notice]="Thank you for your message. I'll be in touch soon."
-            redirect to ('/')
+            flash.now[:notice] = "Thank you for your message. I'll be in touch soon." if send_message
+            slim :contact
     end
 end

@@ -33,7 +33,11 @@ class BatTrainingResources < Sinatra::Base
     end
 
     def current?(path='/')
-        (request.path==path || request.path==path+'/') ? "current" : nil
+        (request.path==path || request.path==path+'/') ? "nav-item active" : "nav-item"
+    end
+
+    def current_dropdown?(path='/')
+        (request.path==path || request.path==path+'/') ? "dropdown-item active" : "dropdown-item"
     end
 
     def set_title
