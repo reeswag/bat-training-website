@@ -16,8 +16,9 @@ html lang="en"
             h1 Bat Surveyor Training Resource
             == slim :nav
         section
-            == styled_flash
             == yield
+            br
+            == styled_flash
             br
             - if @references && @references.empty? == false
                 h2 References

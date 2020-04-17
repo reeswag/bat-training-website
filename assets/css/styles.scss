@@ -139,13 +139,9 @@ label {
 }
 
 .flash {
-  width: 60rem;
-  padding: 0.5rem;
   font-weight: bold;
   margin: 2rem;
-  background: lighten($red, 60%);
   color: $red;
-  border: 1rem solid $red;
 }
 
 .formatted-object {
