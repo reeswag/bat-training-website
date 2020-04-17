@@ -12,6 +12,7 @@ Users can:
 - Coffee-script
 - Sass
 - Slim
+- Bootstrap
 
 ## Installation
 
