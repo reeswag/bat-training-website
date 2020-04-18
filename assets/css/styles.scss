@@ -214,3 +214,20 @@ img {
   width: 100%;
   height: auto;
 }
+
+input.text-input {
+}
+
+input.form-submit-button {
+  background-color: $black; /* Green */
+  border: none;
+  color: white;
+  font: $main-font;
+  font-size: 1rem;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  border-radius: $default-border;
+  margin: 0 auto;
+}
