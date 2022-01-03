@@ -95,15 +95,13 @@ class Website < Sinatra::Base
         slim :contact
     end
 
-    get '/set/:name' do
-        session[:name] = params[:name]
-    end
-
-    get '/hello' do
-        "Hello #{session[:name]}"
+    get '/gallery' do
+        @tile ='Gallery'
+        slim :gallery
     end
 
     not_found do
+        status 404
         slim :not_found
     end
 
